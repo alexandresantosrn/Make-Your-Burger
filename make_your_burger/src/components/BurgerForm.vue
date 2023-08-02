@@ -7,16 +7,18 @@
                     <label for="nome">Nome do cliente:</label>
                     <input type="text" id="nome" v-model="nome" placeholder="Digite o seu nome">
                 </div>
-                <div class="input-container">
+                <div class="input-container">   
                     <label for="pao">Escolha o pão:</label>
                     <select name="pao" id="pao" v-model="pao">
                         <option value="">Selecione o seu pão</option>
+                        <option v-for="pao in paes" :key="pao.id" :value="pao.tipo">{{ pao.tipo }}</option>        
                     </select>
                 </div>
                 <div class="input-container">   
                     <label for="carne">Escolha a carne do seu burger:</label>
                     <select name="carne" id="carne" v-model="carne">
                         <option value="">Selecione o tipo de carne</option>
+                        <option v-for="carne in carnes" :key="carne.id" :value="carne.tipo">{{ carne.tipo }}</option>
                     </select>
                 </div>
                 <div id="opcionais-container" class="input-container">
@@ -59,7 +61,10 @@ export default {
         async getIngredientes() {
             const req = await fetch("http://localhost:3000/ingredientes");
             const data = await req.json ;
-            console.log(data);
+            
+            this.paes = data.paes;
+            this.carnes = data.carnes;
+            this.opcionaisdata = data.opcionais;           
         }
     },
     mounted() {
