@@ -23,14 +23,10 @@
                 </div>
                 <div id="opcionais-container" class="input-container">
                     <label for="opcionais" id="opcionais-title">Selecione os opcionais:</label>
-                    <div class="checkbox-container">
-                        <input type="checkbox" name="opcionais" v-model="opcionais" value="Salame">
-                        <span>Salame</span>
-                    </div>
-                    <div class="checkbox-container">
-                        <input type="checkbox" name="opcionais" v-model="opcionais" value="Queijo">
-                        <span>Queijo</span>
-                    </div>
+                    <div class="checkbox-container" v-for="opcional in opcionaisdata" :key="opcional.id">
+                        <input type="checkbox" name="opcionais" v-model="opcionais" :value="opcional.tipo">
+                        <span>{{ opcional.tipo }}</span>
+                    </div>                   
                 </div>
                 <div class="input container">
                     <input type="submit" class="submit-btn" value="Criar meu Burger!">                    
@@ -59,8 +55,8 @@ export default {
     },
     methods: {
         async getIngredientes() {
-            const req = await fetch("http://localhost:3000/ingredientes");
-            const data = await req.json ;
+            const req = await fetch('http://localhost:3000/ingredientes');
+            const data = await req.json();
             
             this.paes = data.paes;
             this.carnes = data.carnes;
