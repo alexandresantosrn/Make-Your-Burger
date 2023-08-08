@@ -55,6 +55,8 @@ export default {
     },
     methods: {
         async getIngredientes() {
+
+            // requisitando dados da api
             const req = await fetch('http://localhost:3000/ingredientes');
             const data = await req.json();
             
@@ -73,6 +75,7 @@ export default {
                 status: this.status
             }
 
+            // enviando os dados
             const dataJson = JSON.stringify(data);
             const req = await fetch('http://localhost:3000/burgers', {
                 method: 'POST',
@@ -82,6 +85,12 @@ export default {
             
             const res = await req.json();
             console.log(res);
+
+            // limpar os campos
+            this.nome = "";
+            this.carne = "";
+            this.pao = "";
+            this.opcionais = ""
         }
     },
     mounted() {
