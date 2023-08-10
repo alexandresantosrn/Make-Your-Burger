@@ -83,6 +83,7 @@ export default {
                 body: dataJson
             });     
             
+            //apresentando no console
             const res = await req.json();
             console.log(res);
 
