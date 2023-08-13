@@ -23,5 +23,4 @@ export default {
         max-width: 400px;
         margin: 30px auto;       
     }
-
 </style>

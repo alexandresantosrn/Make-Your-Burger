@@ -1,5 +1,4 @@
-<template>
-  
+<template>  
   <div class="main-container">
     <Banner />
     <h1>Monte o seu burger:</h1>
