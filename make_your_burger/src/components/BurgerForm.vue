@@ -89,8 +89,7 @@ export default {
 
             //apresentando no console
             const res = await req.json();
-            console.log(res);    
-            
+            console.log(res);                
             
             // colocar mensagem no sistema
             this.msg = 'Pedido realizado com sucesso.'
