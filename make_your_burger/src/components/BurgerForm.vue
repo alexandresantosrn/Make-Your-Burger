@@ -63,7 +63,7 @@ export default {
             const req = await fetch('http://localhost:3000/ingredientes');
             const data = await req.json();
             
-            // setando dados nas variáveis
+            // setando dados nas variáveis internas
             this.paes = data.paes;
             this.carnes = data.carnes;
             this.opcionaisdata = data.opcionais;           
@@ -79,22 +79,24 @@ export default {
                 status: this.status
             }
 
-            // enviando os dados
+            // montando Json
             const dataJson = JSON.stringify(data);
+
+            // enviando dados
             const req = await fetch('http://localhost:3000/burgers', {
                 method: 'POST',
                 headers: {'Content-type': 'application/json'},
                 body: dataJson
             });                 
 
-            //apresentando no console
+            // retornando e apresentando no console
             const res = await req.json();
             console.log(res);                
             
-            // colocar mensagem no sistema
+            // colocar mensagem no sistema após pedido
             this.msg = 'Pedido realizado com sucesso.'
 
-            // limpar msg
+            // limpar msg após 2 segundos
             setTimeout(() => this.msg = "", 2000);
 
             // limpar os campos
