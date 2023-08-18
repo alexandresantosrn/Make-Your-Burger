@@ -71,6 +71,7 @@ export default {
         async createBurger(e) {
             e.preventDefault();
 
+            // capturando dados
             const data = {
                 nome: this.nome,
                 carne: this.carne,
