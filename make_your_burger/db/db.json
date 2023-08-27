@@ -112,6 +112,17 @@
       ],
       "status": "Solicitado",
       "id": 3
+    },
+    {
+      "nome": "Arthur Cuecão",
+      "carne": "Alcatra",
+      "pao": "3 Queijos",
+      "opcionais": [
+        "Cheddar",
+        "Bacon"
+      ],
+      "status": "Solicitado",
+      "id": 4
     }
   ]
 }
